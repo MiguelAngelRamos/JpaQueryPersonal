@@ -29,4 +29,13 @@ public interface IPizzaRepository extends CrudRepository<PizzaEntity, Integer> {
   * NameIgnoreCase: Filtra el campo name si hacemos match con el valor proporcionado y ademas ignorando la diferencia entre mayusculas
   * y minúsculas
   * */
+
+  // Obtener las pizzas que tengan un ingrediente en especifico (en su description)
+  List<PizzaEntity> findAllByAvailableTrueAndDescriptionContainingIgnoreCase(String description);
+
+  /*
+  * DescriptionContaining: Filtra los registros donde del description para ver si tiene el valor proporcinado
+  * IgnoreCase: Ignora entre mayusculas y minusculas
+  * */
+
 }

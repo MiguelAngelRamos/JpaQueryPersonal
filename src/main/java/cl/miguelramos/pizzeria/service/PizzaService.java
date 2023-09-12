@@ -37,12 +37,20 @@ public class PizzaService {
   }
 
   //* Query method
+  // Pizza disponible
   public List<PizzaEntity> getAvailable() {
     return this.pizzaRepository.findAllByAvailableTrueOrderByPrice();
   }
 
+  // Por el nombre
   public PizzaEntity getByName(String name) {
     return this.pizzaRepository.findAllByAvailableTrueAndNameIgnoreCase(name);
   }
+
+  // Obtener una pizza por un ingrediente
+  public List<PizzaEntity> getWith(String ingredient) {
+    return this.pizzaRepository.findAllByAvailableTrueAndDescriptionContainingIgnoreCase(ingredient);
+  }
+
 
 }
